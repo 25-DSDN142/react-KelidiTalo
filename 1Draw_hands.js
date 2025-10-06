@@ -3,7 +3,8 @@
 function prepareInteraction() {
   //bgImage = loadImage('/images/background.png');
 }
-
+let size = 10 
+let rings = [];
 function drawInteraction(faces, hands) {
   // hands part
   // for loop to capture if there is more than one hand on the screen. This applies the same process to all hands.
@@ -14,8 +15,10 @@ function drawInteraction(faces, hands) {
       drawConnections(hand)
     }
 
-    // This is how to load in the x and y of a point on the hand.
-    let indexFingerTipX = hand.index_finger_tip.x;
+    
+  // This is how to load in the x and y of a point on the hand.
+  
+  let indexFingerTipX = hand.index_finger_tip.x;
     let indexFingerTipY = hand.index_finger_tip.y;
 
     //  let pinkyFingerTipX = hand.pinky_finger_tip.x;
@@ -24,10 +27,16 @@ function drawInteraction(faces, hands) {
     /*
     Start drawing on the hands here
     */
+    for(let i = 0; i<5; i++) {
+    if (size < width){
+      stroke (180,0,80)
+      strokeWeight(20)
+      noFill()
+      ellipse(indexFingerTipX, indexFingerTipY, size, size);
+      size = size + 5}
 
-    fill(225, 225, 0);
-    ellipse(indexFingerTipX, indexFingerTipY, 30, 30);
-
+      console.log(indexFingerTipX)
+    }
     // drawPoints(hand)
 
     //fingerPuppet(indexFingerTipX, indexFingerTipY);
